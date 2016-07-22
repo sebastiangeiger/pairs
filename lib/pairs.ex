@@ -3,7 +3,10 @@ defmodule Pairs do
   # * Dializer
   # * Sanity check, only one per list
 
-  @moduledoc false
+  @moduledoc ~S"""
+    `Pairs` currently only has methods to create pairs from two lists: `create/2` and `create/4`.
+  """
+
 
   @doc ~S"""
   Creates a list of pairs from the `left` and `right` lists.

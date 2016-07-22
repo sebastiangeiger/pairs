@@ -8,15 +8,15 @@ defmodule Pairs.Mixfile do
      name: "Pairs",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps()]
+     deps: deps(),
+     package: package(),
+     description: description()]
   end
 
   # Configuration for the OTP application
   #
   # Type "mix help compile.app" for more information
-  def application do
-    [applications: [:logger]]
-  end
+  def application, do: []
 
   # Dependencies can be Hex packages:
   #
@@ -30,5 +30,23 @@ defmodule Pairs.Mixfile do
   defp deps do
     [{:ex_doc, "~> 0.13.0", only: :dev},
      {:earmark, "~> 1.0.1", only: :dev}]
+  end
+
+  defp package do
+    [
+      files: ["lib", "mix.exs", "README.md"],
+      maintainers: ["Sebastian Geiger"],
+      licenses: ["Apache 2.0"],
+      links: %{
+        "GitHub" => "https://github.com/sebastiangeiger/pairs",
+        "Docs" => "http://hexdocs.pm/pairs/"
+      }
+    ]
+  end
+
+  defp description do
+    """
+    Pairs is a small library that makes it easy to create pairs from two lists.
+    """
   end
 end
